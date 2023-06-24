@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <title> Your Products </title>
+</head>
+<body>
+    <div class="product-container">
+        <div class="left">
+            <h3> Essentials </h3>
+            <div class="menu-items">
+                <div class="item">
+                    <i class="fa-regular fa-clock"></i>
+                    <a href="dashboard.html"> Dashb<span>oard</span> </a>
+                </div>
+                <div class="item">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <a href="products.html"> Prod<span style="border-bottom: 3px solid white;">ucts</span> </a>
+                </div>
+                <div class="item">
+                    <i class="fa-regular fa-credit-card"></i>
+                    <a href="payments.html"> Payments </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="right">
+            <div class="nav">
+                <input type="text" placeholder="Search for product..">
+            
+                <div class="profile-box">
+                    <div class="avatar-container">
+                        <img src="../images/avatar-img.png" alt="Avatar" class="avatar-image">
+                    </div> 
+                    <h3> John Doe</h3>
+                </div>                 
+            </div>
+
+            <div class="body">
+                <div class="row">
+                    <h2> Products </h2>
+                    <button type="button" data-toggle="modal" data-target="#exampleModalCenter"> Add </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <!-- <h5 class="modal-title" id="exampleModalLongTitle"> </h5> -->
+
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button> -->
+            <h2 style="text-align: center;"> Add a New Product </h2>
+            </div>
+            <div class="modal-body">
+                <div class="name-box">
+                    <h4> Product Name </h4>
+                    <input type="text" placeholder="Cheetos">
+                </div>
+                <div class="name-box">
+                    <h4>Category</h4>
+                    <select>
+                        <option value="">Select an option</option>
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <div class="name-box">
+                    <h4> Description </h4>
+                    <textarea name="" placeholder="Loren ipsum" id="" cols="30" rows="4"></textarea>
+                </div>
+                <div class="name-box">
+                    <h4> Price </h4>
+                    <input type="text" placeholder="$23">
+                </div>
+                <div class="name-box">
+                    <h4> Quantity </h4>
+                    <input type="number" placeholder="0 pcs">
+                </div>
+                <div class="name-box">
+                    <h4> Expiry Date </h4>
+                    <input type="date">
+                </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
+            <button type="button" class="btn btn-primary" id="save">Save changes</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script src="../bootstrap/js/bootstrap.js"></script>
+    
+</body>
+</html>
