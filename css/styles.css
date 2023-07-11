@@ -5,6 +5,7 @@
 
 body{
     font-family: 'Inter', sans-serif;
+    /* background-color: rebeccapurple!important; */
 }
 
 
@@ -24,6 +25,8 @@ body{
     flex-direction: column;
     padding-left: 7%;
     gap: 1%;
+    /* position: fixed; */
+    /* height: 100%; */
 }
 
 h1{
@@ -182,7 +185,7 @@ input[type="checkbox"] {
 .product-container{
     display: flex;
     height: 100vh;
-    overflow: hidden;
+    /* overflow-x: hidden; */
 }
 
 /* Left pane styling */
@@ -190,6 +193,9 @@ input[type="checkbox"] {
     flex-basis: 20%;
     background-color: #BCDFFB;
     padding: 1% 0 0 3%;
+    position: fixed;
+    height: 100vh;
+    width: 40vh;
 
 }
 
@@ -237,17 +243,20 @@ input[type="checkbox"] {
 
 .product-container > .right {
     flex-basis: 74%;
+    padding-left: 46vh;
 }
 
 /* Nav and search box style */
 .product-container > .right > .nav{
-    width: 100%;
-    height: 3%;
+    width: 73vw;
+    height: 1vh;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     padding: 2% 2%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    /* opacity: 100%; */
 }
 
 .product-container > .right > .nav > input{
@@ -268,12 +277,12 @@ input[type="checkbox"] {
 
 
 .avatar-container {
-    width: 40px;
-    height: 40px;
+    width: 33px;
+    height: 33px;
     border-radius: 50%;
     overflow: hidden;
     border: 2px solid #958D8D;
-    /* margin-right: ; */
+    /* margin-right: 25% ; */
 
   }
   
@@ -285,18 +294,108 @@ input[type="checkbox"] {
 
 .profile-box{
     display: flex;
-    width: 13%;
+    /* gap: 10%; */
+    width: 20%;
     justify-content: space-evenly;
     align-items: center;
+    border: 1px solid rgba(142, 133, 134, 0.45);
+    padding: 3px;
+    border-radius: 10px;
     
 }
 
 .profile-box > h3{
     color: #BCDFFB;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 900;
 }
 
+.drop-down{
+    position: absolute;
+    padding: 1%;
+    top: 108%;
+    right: 3%;
+    border: 1px solid rgba(142, 133, 134, 0.45);
+    background: #FFF;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 230px;
+    max-height: 150px;
+    border-radius: 10px;
+    font-style: italic;
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+    /* align-items: center; */
+    /* display: none; */
+    justify-content: center;
+    display: none;
+    
+}
+
+.drop-down.open-menu{
+    display: flex;
+}
+
+.drop-down-profile{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+    gap: 4%;
+}
+
+.drop-down-profile p{
+    color: #BCDFFB;
+    font-size: 19px;
+    font-weight: 900;
+}
+
+.drop-down hr{
+    margin-top: 4%;
+}
+
+.drop-down-row{
+    display: flex;
+    gap: 17%;
+    /* justify-content: space-evenly; */
+    padding: 2%;
+    margin-top: 5%
+    
+}
+.drop-down-row i{
+    color: #BCDFFB;
+    font-size: 20px;
+
+}
+
+.drop-down-row a:hover{
+    font-weight: 600;
+}
+
+#right-icon:hover{
+    transform: translateX(5px);
+}
+
+.drop-down-row a{
+    font-style: normal;
+    color: #706A6B;
+    text-decoration: none;
+}
+
+.anchor-div button{
+    /* align-self: center; */
+    margin: auto;
+    padding: 4px 6px;
+    border-radius: 5px;
+    border: solid 1px rgba(142, 133, 134, 0.45);
+    margin-top: 4px;
+    font-weight: 900;
+}
+
+
+
+.drop-down-row button a:link, .drop-down-row button a:visited {
+  color: black; /* Use the same color as the surrounding text */
+  text-decoration: none; /* Remove underline */
+}
 /* End of NAV style */
 
 /* Body style */
@@ -308,6 +407,8 @@ input[type="checkbox"] {
 .body{
     padding: 2%;
     width: 100%;
+    height: 100%;
+    padding-top: 8%;
 
 }
 
@@ -411,4 +512,361 @@ textarea {
     color: white;
     font-weight: 900;
  
+}
+
+/* Dashboard styling */
+
+.dash-row{
+    display: flex;
+    gap: 2%;
+}
+.dash-card{
+    margin-top: 1%;
+    width: 21%;
+    height: 19%;
+    border-radius: 10px;
+    border: 1px solid rgba(142, 133, 134, 0.45);
+    background: #FFF;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 7px 1%;
+}
+
+.dash-card > i{
+    display: flex;
+    justify-content: flex-end;
+    color: #BCDFFB;
+}
+
+.dash-card .icon-div{
+    width: 52px;
+    height: 52px;
+    border-radius: 86px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(217, 217, 217, 0.3);
+    margin-bottom: 4%;
+    /* background-color: red; */
+}
+
+.dash-card .icon-div i{
+    font-size: 160%;
+    color: #706A6B;
+}
+
+.dash-card p{
+    font-size: 17px;
+    font-family:'Inter', sans-serif;
+    /* font-weight: 700; */
+    color: #8E8586;
+    font-style: italic;
+
+}
+
+.dash-card h4{
+    color: #BCDFFB;
+    font-size: 22px;
+    font-weight: 900;
+    font-style: italic;
+}
+
+
+table{
+    width: 100%;
+    border: 1px solid rgba(142, 133, 134, 0.45);
+    margin-top: 1%;
+
+}
+
+td, th {
+    /* border: 1px solid #ddd; */
+    padding: 8px;
+}
+
+tr:nth-child(even){
+    background-color: #ddd;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #BCDFFB;
+  color: white;
+}
+
+
+/* Product details styling */
+.detail-container{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+
+.detail-container .detail-left{
+    /* padding: 10% 5%; */
+    background-color: #BCDFFB;
+    flex-basis:56%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.detail-img{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    width: 100%;
+    height: 70%;
+}
+
+.detail-container .detail-left img{
+    /* display: flex; */
+    /* justify-content: center; */
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+/* Product details right side styling */
+.detail-right{
+    /* width: 100%; */
+    flex-basis: 39%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+    justify-content: center;
+    /* gap: 2px; */
+}
+
+.detail-right h3{
+    color: #8E8586;
+}
+
+.detail-right h1{
+    color: #BCDFFB;
+}
+
+.detail-right .description{
+    width: 60%;
+}
+
+.detail-right .description p{
+    color: #8E8586;
+}
+
+.price-container{
+    margin-top: 2%;
+    display: flex;
+    padding-right: 52%;
+    /* width: 50%; */
+    justify-content: space-between;
+}
+
+.price-container h2{
+    font-size: 35px;
+    font-weight: 700;
+    font-style: italic;
+    color: #8E8586;
+    
+}
+
+.price-container #edit-product{
+    background-color: #BCDFFB;
+    border-radius: 17px;
+    color: white;
+    padding: 10% 40%;
+    font-size: 22px;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-style: italic;
+   
+}
+
+.edit-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.edit-container i{
+    font-size: 35px;
+    color: #BCDFFB;
+
+}
+
+.detail-right hr{
+    width: 60%;
+    margin-top: 4%;
+    margin-bottom: 1%;
+}
+
+.detail-pane{
+    display: flex;
+    gap: 5%;
+    align-items: center;
+}
+
+.left-detail p, .right-detail p{
+    font-family: 'Inter', sans-serif;
+    color: #8E8586;
+    margin-top: 10%;
+}
+
+.right-detail p{
+    font-weight: 700;
+}
+
+/* Product page styling */
+.product-card .product-img{
+    width: 40%;
+    height: 40%;
+}
+
+.product-card .product-img img{
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.product-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid rgba(142, 133, 134, 0.45);
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: 1%;
+    width: 20%;
+    /* min-height: 30%; */
+    margin-bottom: 2%;
+}
+
+.product-card h3{
+    color: #8E8586;
+    text-align: center;
+    font-size: 26px;
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 900;
+    line-height: normal;
+}
+
+.product-card h2{
+    font-size: 26px;
+    
+}
+
+.product-card h4{
+    color: #8E8586;
+    text-align: center;
+    font-size: 18px;
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.info{
+    margin-left: 90%;
+
+}
+
+.info i{
+    color: #BCDFFB;
+}
+
+.product-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap:3%; 
+    margin-top:1%;
+    max-width:100%;
+    
+}
+
+.chart-row{
+    display: flex;
+    width: 100%;
+    height: 40%;
+    /* gap: 3% */
+    justify-content: space-between
+}
+
+.chart-box{
+    width: 50%;
+}
+
+.payment-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+
+.payment-row input{
+    width: 12%;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;    
+    font-weight: 600;
+    color: #8E8586;
+}
+
+
+.payment-card{
+    margin-top: 1%;
+    width: 100%;
+    height: 10%;
+    /* border: 1px solid red; */
+    border-radius: 15px;
+    border: 1px solid rgba(142, 133, 134, 0.45);
+    background: #FFF;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    padding: 1% 3%;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.payment-card i{
+    font-size: 25px;
+    color: #BCDFFB;
+    margin-right: 5%;
+}
+
+.payment-card > .date-box{
+    display: flex;
+    align-items: center;
+}
+
+.payment-card > .date-box > .detail-box > h4{
+    white-space: nowrap;
+    font-style: italic;
+    color:  #8E8586;
+}
+
+.payment-card > .date-box > .detail-box > p{
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    /* font-weight: 600; */
+    color:  #8E8586;
+}
+
+
+#no-payments{
+    color: #8E8586;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 4%;
+    font-size: 20px;
 }

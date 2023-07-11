@@ -29,26 +29,29 @@
         <div class="right">
             <h1> Sign in to Your Account </h1>
             <h3> Let's get you right back where you left off </h3>
-            <div class="login-box">
-                <span class="icon"><i class="fa-solid fa-at"></i></span>
-                <input type="text" placeholder="Email">
+            <form action="../controllers/loginController.php" method="POST">
+                <div class="login-box">
+                    <span class="icon"><i class="fa-solid fa-at"></i></span>
+                    <input type="text" name="Email" placeholder="Email">
+    
+                </div>
+    
+                <div class="login-box">
+                    <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                    <input type="text" name="Password" placeholder="Password">
+    
+                </div>
+                <div class="remember">
+                    <label for="remember-me-checkbox">
+                        <input type="checkbox" id="remember-me-checkbox" name="remember-me">
+                        Remember Me
+                    </label>
+                    <a href=""> Forgot Password? </a>
+                </div>
+                
+                <button type="submit" name="login" class="login-btn"> Log In </button>
 
-            </div>
-
-            <div class="login-box">
-                <span class="icon"><i class="fa-solid fa-lock"></i></span>
-                <input type="text" placeholder="Password">
-
-            </div>
-            <div class="remember">
-                <label for="remember-me-checkbox">
-                    <input type="checkbox" id="remember-me-checkbox" name="remember-me">
-                    Remember Me
-                </label>
-                <a href=""> Forgot Password? </a>
-            </div>
-            
-            <a href="products.html"><button class="login-btn"> Log In </button> </a>
+            </form>
 
         </div>
     </div>
