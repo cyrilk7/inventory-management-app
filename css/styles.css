@@ -5,6 +5,7 @@
 
 body{
     font-family: 'Inter', sans-serif;
+    overflow: hidden;
     /* background-color: rebeccapurple!important; */
 }
 
@@ -248,7 +249,7 @@ input[type="checkbox"] {
 
 /* Nav and search box style */
 .product-container > .right > .nav{
-    width: 73vw;
+    width: 74vw;
     height: 1vh;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     padding: 2% 2%;
@@ -259,15 +260,81 @@ input[type="checkbox"] {
     /* opacity: 100%; */
 }
 
-.product-container > .right > .nav > input{
-    padding: 1%;
-    border-radius: 10px;
+.product-container > .right > .nav > .search-box{
     width: 30%;
+    
+}
+
+.product-container > .right > .nav > .search-box > .results{
+    display: none;
+    box-sizing: border-box;
+    width: 22vw;
+    position: absolute;
+    padding: 1% 1% 0 1%;
+    top: 108%;
+    border: 1px solid rgba(142, 133, 134, 0.45);
+    background: #FFF;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.product-container > .right > .nav > .search-box > .results > a{
+    text-decoration: none;
+}
+
+.product-container > .right > .nav > .search-box > .results > a > .search-item{
+    display: flex;
+    align-items: center;
+    margin-bottom: 3%;
+    gap: 3%;
+}
+
+.product-container > .right > .nav > .search-box > .results > a > .search-item > .category-box > h4{
+    color: #BCDFFB;
+    font-style: italic;
+
+}
+
+.product-container > .right > .nav > .search-box > .results > a > .search-item > .category-box > p{
+    color: #8E8586;
+    font-size: 12px;
+
+
+}
+
+#no-matches{
+    margin-bottom: 3%;
+    color: #8E8586;
+    font-style: italic;
+    font-weight: 600;
+
+}
+.product-container > .right > .nav > .search-box > .results > a > .search-item > .search-img{
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(142, 133, 134, 0.45);
+    border-radius: 8px;
+}
+
+.product-container > .right > .nav > .search-box > .results > a > .search-item > .search-img > img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+
+
+
+.product-container > .right > .nav > .search-box > input{
+    box-sizing: border-box;
+    padding: 3%;
+    border-radius: 10px;
+    width: 100%;
     border: 2px solid #958D8D;
     font-family: 'Inter', sans-serif;
 }
 
-.product-container > .right > .nav > input::placeholder{
+.product-container > .right > .nav > .search-box > input::placeholder{
     color: rgba(142, 133, 134, 0.45);
     font-size: 12px;
     font-family: Inter;
@@ -350,6 +417,7 @@ input[type="checkbox"] {
 
 .drop-down hr{
     margin-top: 4%;
+    margin-bottom: 0;
 }
 
 .drop-down-row{
@@ -409,6 +477,9 @@ input[type="checkbox"] {
     width: 100%;
     height: 100%;
     padding-top: 8%;
+    
+
+    /* overflow: ; */
 
 }
 
@@ -570,7 +641,15 @@ textarea {
     font-style: italic;
 }
 
+.table-container{
+    height: 45%;
+    overflow: auto;
+}
 
+/* .table-container::-webkit-scrollbar{ 
+    opacity: 1;
+    transition: opacity 0.3s;
+} */
 table{
     width: 100%;
     border: 1px solid rgba(142, 133, 134, 0.45);
@@ -578,9 +657,15 @@ table{
 
 }
 
+thead{
+    position: sticky;
+    top: 0;
+}
+
 td, th {
     /* border: 1px solid #ddd; */
     padding: 8px;
+    font-family: 'Inter', sans-serif;
 }
 
 tr:nth-child(even){
@@ -610,11 +695,29 @@ th {
 
 .detail-container .detail-left{
     /* padding: 10% 5%; */
+    box-sizing: border-box;
+    padding: 2%;
     background-color: #BCDFFB;
     flex-basis:56%;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.detail-container .detail-left .detail-img-box{
+    width: 100%;
+    height: 90%;
+    /* background-color: white; */
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    /* padding-bottom: 20%; */
+}
+
+.detail-container .detail-left i{
+    color: white;
+    font-size: 30px;
 }
 
 .detail-img{
@@ -622,7 +725,7 @@ th {
     justify-content: center;
     align-items: center; */
     width: 100%;
-    height: 70%;
+    height: 100%;
 }
 
 .detail-container .detail-left img{
@@ -742,8 +845,10 @@ th {
     border: 1px solid rgba(142, 133, 134, 0.45);
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
-    padding: 1%;
-    width: 20%;
+    box-sizing: border-box;
+    padding: 1% 1% 0 1%;
+    width: 22%;
+    /* max-height: 22%; */
     /* min-height: 30%; */
     margin-bottom: 2%;
 }
@@ -820,12 +925,18 @@ th {
     font-weight: 600;
     color: #8E8586;
 }
-
-
+.payment-cards{
+    /* height: 45%; */
+    overflow-x: auto;
+    width: 100%;
+    padding: 0 1%;
+    box-sizing: border-box;
+    height: 34%;
+}
 .payment-card{
     margin-top: 1%;
     width: 100%;
-    height: 10%;
+    height: 9vh;
     /* border: 1px solid red; */
     border-radius: 15px;
     border: 1px solid rgba(142, 133, 134, 0.45);

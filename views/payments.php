@@ -16,6 +16,7 @@ $profileImage = $_SESSION['ProfileImage'];
     integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/styles.css">
 
     <title> Your Products </title>
@@ -46,7 +47,13 @@ $profileImage = $_SESSION['ProfileImage'];
         </div>
         <div class="right">
             <div class="nav">
-                <input type="text" placeholder="Search for product..">
+                <div class="search-box">
+                    <input type="text" placeholder="Search for product..">
+                    <div class="results">
+
+                    </div>
+
+                </div>
             
                 <div class="profile-box" onclick="toggleMenu()">
                     <div class="avatar-container">
@@ -91,33 +98,34 @@ $profileImage = $_SESSION['ProfileImage'];
                         <h2> Choose the date </h2>
                         <input type="date" id="paymentPicker">
                     </div>
-                    
-                    <?php 
-                        if (isset($_GET['date'])){
-                            $date = $_GET['date'];
-                            $payments = Payment::getPaymentByDate($date);
-                        }
+                    <div class="payment-cards">
 
-                        if (count($payments) > 0)
-   
-                        foreach ($payments as $payment) {                   
-                    ?>
-                    <div class="payment-card">
-                        <div class="date-box">
-                            <i class="fa-solid fa-credit-card"></i>
-                            <div class="detail-box">
-                                <h4> <?php echo $payment['PaymentDate'] ?>  AT <?php echo $payment['PaymentTime'] ?> </h4>
-                                <p> <?php echo $payment['StudentID'] ?> </p>
-                            </div>
-                        </div>
-                        <h2> $<?php echo $payment['Amount'] ?> </h2>
-                    </div>
-                    <?php } 
-                    else{
-                        echo "<h3 id=no-payments> No payments found </h3>";
-                    }
-                    ?>
+                        <?php 
+                            if (isset($_GET['date'])){
+                                $date = $_GET['date'];
+                                $payments = Payment::getPaymentByDate($date);
+                            }
+
+                            if (count($payments) > 0)
     
+                            foreach ($payments as $payment) {                   
+                        ?>
+                        <div class="payment-card">
+                            <div class="date-box">
+                                <i class="fa-solid fa-credit-card"></i>
+                                <div class="detail-box">
+                                    <h4> <?php echo $payment['PaymentDate'] ?>  AT <?php echo $payment['PaymentTime'] ?> </h4>
+                                    <p> <?php echo $payment['StudentID'] ?> </p>
+                                </div>
+                            </div>
+                            <h2> $<?php echo $payment['Amount'] ?> </h2>
+                        </div>
+                        <?php } 
+                        else{
+                            echo "<h3 id=no-payments> No payments found </h3>";
+                        }
+                        ?>
+                    </div>
                 </div>
             </div>
 

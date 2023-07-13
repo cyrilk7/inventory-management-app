@@ -38,7 +38,7 @@
     
                 <div class="login-box">
                     <span class="icon"><i class="fa-solid fa-lock"></i></span>
-                    <input type="text" name="Password" placeholder="Password">
+                    <input type="password" name="Password" placeholder="Password">
     
                 </div>
                 <div class="remember">

@@ -158,7 +158,7 @@ class Product{
     }
 
 
-    public static function editProduct($productID, $productName, $productCategory, $productDescription, $productPrice, $productQuantity,$productExpiry){
+    public static function editProduct($productID, $productName, $productCategory, $productDescription, $productPrice, $productQuantity,$productExpiry, $productImage = 0){
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -171,7 +171,10 @@ class Product{
         }
 
         else{
-            $sql = "UPDATE products SET ProductName = '$productName', Category = '$productCategory', Description = '$productDescription', Price = '$productPrice', Quantity = '$productQuantity', ExpiryDate = '$productExpiry' WHERE ProductID = '$productID'";
+            $sql = "UPDATE products SET ProductName = '$productName', Category = '$productCategory', Description = '$productDescription', Price = '$productPrice', Quantity = '$productQuantity', ExpiryDate = '$productExpiry', ProductImage = '$productImage' WHERE ProductID = '$productID'";
+            if ($productImage == 0){
+                $sql = "UPDATE products SET ProductName = '$productName', Category = '$productCategory', Description = '$productDescription', Price = '$productPrice', Quantity = '$productQuantity', ExpiryDate = '$productExpiry' WHERE ProductID = '$productID'";
+            }
             $result = mysqli_query($conn, $sql);
             
             if ($result){

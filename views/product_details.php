@@ -32,9 +32,14 @@ if (!isset($_GET['id'])){
     ?>
     <div class="detail-container">
         <div class="detail-left">
-            <!-- <i class="fa-solid fa-arrow-left"></i> -->
-            <div class="detail-img">
-                <img src="<?php echo $product['ProductImage']; ?>" alt="">
+            <a href="../views/products.php">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+            <div class="detail-img-box">
+                <div class="detail-img">
+                    <img src="<?php echo $product['ProductImage']; ?>" alt="">
+    
+                </div>
 
             </div>
         </div>
@@ -76,7 +81,7 @@ if (!isset($_GET['id'])){
             <div class="modal-header">
             <h2 style="text-align: center;"> Edit Product </h2>
             </div>
-            <?php echo '<form action="../controllers/product_controller.php?id='. $_GET['id'] .'" method="POST">' ?>
+            <?php echo '<form action="../controllers/product_controller.php?id='. $_GET['id'] .'" method="POST" enctype="multipart/form-data">' ?>
                 <div class="modal-body">
 
                     <div class="name-box">
@@ -111,6 +116,11 @@ if (!isset($_GET['id'])){
                     <div class="name-box">
                         <h4> Expiry Date </h4>
                         <input value="<?php echo $product['ExpiryDate']; ?>" type="date" name="productExpiry">
+                    </div>
+
+                    <div class="name-box">
+                        <h4> Product Image </h4>
+                        <input type="file" name="productImage" accept=".png, .jpg, .jpeg">
                     </div>
                 </div>
                 <div class="modal-footer">

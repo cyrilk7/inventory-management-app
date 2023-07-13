@@ -56,14 +56,49 @@ if (isset($_SESSION['FirstName'])){
         $productExpiry = $_POST['productExpiry'];
 
 
-        $editBool = Product::editProduct($productID, $productName, $productCategory, $productDescription, $productPrice, $productQuantity,$productExpiry);
+        $productImage = $_FILES["productImage"]["name"];
+        $base = "../images/products/";
+        $targetDirectory = $base . basename($productImage);
+
         
-        if ($editBool){
-            header("Location: ../views/product_details.php?id=$productID");
+        if (file_exists($targetDirectory)){
+            $fileExtension = pathinfo($targetDirectory, PATHINFO_EXTENSION);
+            $fileName = pathinfo($targetDirectory, PATHINFO_FILENAME);
+            $newDirectory = $fileName . '_' . time() . '.' . $fileExtension;
+            
+            $targetDirectory = $base . $newDirectory;
         }
+        
+        if ($_FILES["productImage"]['size'] == 0) {
+            $editBool = Product::editProduct($productID, $productName, $productCategory, $productDescription, $productPrice, $productQuantity,$productExpiry);
+            
+            if ($editBool){
+                header("Location: ../views/product_details.php?id=$productID");
+            }
+            else{
+                echo "Unsuccessful";
+            }
+            
+        } 
+
+        if (!$_FILES["productImage"]['size'] == 0){ 
+            // echo "HERE";
+            if (move_uploaded_file($_FILES["productImage"]["tmp_name"], $targetDirectory)) {
+                $editBool = Product::editProduct($productID, $productName, $productCategory, $productDescription, $productPrice, $productQuantity,$productExpiry, $targetDirectory);
+                if ($editBool){
+                    header("Location: ../views/product_details.php?id=$productID");
+                }
+                else{
+                    echo "Unsuccessful";
+                }
+                
+            } 
+        }
+
         else{
-            echo "Unsuccessful";
+            echo "Error moving the uploaded file."; 
         }
+        
 
         
 

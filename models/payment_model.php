@@ -64,14 +64,17 @@ class Payment{
 
             if ($numrows > 0){
                 $row = mysqli_fetch_assoc($result);
-                $count = $row['DailyRevenue'];
-                // echo "In here";
+
+                if (is_null($row['DailyRevenue'])){
+                    $count = 0;
+                }
+                else{
+                    $count = $row['DailyRevenue'];
+                }
+
                 return $count;
 
             }
-            
-            
-
         }
 
     }
@@ -90,7 +93,7 @@ class Payment{
         }
 
         else{
-            $sql = "SELECT * FROM Payment ORDER BY PaymentDate LIMIT 6";
+            $sql = "SELECT * FROM Payment ORDER BY PaymentDate";
             $result = mysqli_query($conn, $sql);
             $numrows = mysqli_num_rows($result);
 
@@ -154,7 +157,7 @@ class Payment{
             $startRange = date('Y-m-d', strtotime('-7 days'));
             $endRange = date('Y-m-d');
     
-            $query = "SELECT DAYNAME(PaymentDate) as day, COUNT(*) as count FROM Payment WHERE PaymentDate BETWEEN '$startRange' AND '$endRange' GROUP BY day";
+            $query = "SELECT DAYNAME(PaymentDate) as day, COUNT(*) as count FROM Payment WHERE PaymentDate BETWEEN '$startRange' AND '$endRange' GROUP BY day ORDER BY PaymentDate";
             $result = mysqli_query($conn, $query);
 
             $data = array();

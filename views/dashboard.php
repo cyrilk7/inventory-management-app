@@ -18,6 +18,7 @@ $profileImage = $_SESSION['ProfileImage'];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
     integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/styles.css">
     <title> Your Products </title>
 </head>
@@ -47,7 +48,13 @@ $profileImage = $_SESSION['ProfileImage'];
         </div>
         <div class="right">
             <div class="nav">
-                <input type="text" placeholder="Search for product..">
+                <div class="search-box">
+                    <input type="text" placeholder="Search for product..">
+                    <div class="results">
+
+                    </div>
+
+                </div>
             
                 <div class="profile-box" onclick="toggleMenu()">
                     <div class="avatar-container">
@@ -115,35 +122,40 @@ $profileImage = $_SESSION['ProfileImage'];
                 </div>
                 <h2 style="margin-top: 2%;"> Recent Payments </h2>
 
-                <table>
-                    <tr>
-                        <th> Payment Date </th>
-                        <th> Payment Time </th>
-                        <th> Amount </th>
-                        <th> Student ID</th>
+                <div class="table-container">
+                    <table>
+                        <thead>
 
-                    </tr>
-
-                    <?php
-                        while ($row = mysqli_fetch_assoc($payments)) {
-                            $date = $row['PaymentDate'];
-                            $time = $row['PaymentTime'];
-                            $amount = $row['Amount'];
-                            $id = $row['StudentID'];
-                        
-                            echo "<tr>";
-                            echo "<td>$date</td>";
-                            echo "<td>$time</td>";
-                            echo "<td>$amount</td>";
-                            echo "<td>$id</td>";
-                            echo "</tr>";
-                        }
-
-                    ?>
-
-
-
-                </table>
+                            <tr>
+                                <th> Payment Date </th>
+                                <th> Payment Time </th>
+                                <th> Amount </th>
+                                <th> Student ID</th>
+        
+                            </tr>
+                        </thead>
+    
+                        <?php
+                            while ($row = mysqli_fetch_assoc($payments)) {
+                                $date = $row['PaymentDate'];
+                                $time = $row['PaymentTime'];
+                                $amount = $row['Amount'];
+                                $id = $row['StudentID'];
+                            
+                                echo "<tr>";
+                                echo "<td>$date</td>";
+                                echo "<td>$time</td>";
+                                echo "<td>$amount</td>";
+                                echo "<td>$id</td>";
+                                echo "</tr>";
+                            }
+    
+                        ?>
+    
+    
+    
+                    </table>
+                </div>
             </div>
 
         </div>

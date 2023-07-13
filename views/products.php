@@ -19,6 +19,11 @@ $profileImage = $_SESSION['ProfileImage'];
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body{
+            overflow-y: scroll;
+        }
+    </style>
 
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <title> Your Products </title>
@@ -49,7 +54,14 @@ $profileImage = $_SESSION['ProfileImage'];
         </div>
         <div class="right">
             <div class="nav">
-                <input type="text" placeholder="Search for product..">
+                <div class="search-box">
+                    <input type="text" placeholder="Search for product..">
+                    <div class="results">
+                        <!-- <p> HSHS </p>
+                        <p> D </p> -->
+                    </div>
+
+                </div>
             
                 <div class="profile-box" onclick="toggleMenu()">
                     <div class="avatar-container">
