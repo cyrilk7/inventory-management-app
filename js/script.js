@@ -101,16 +101,3 @@ function generateChart(){
 
 }
 
-// function toggleDatePicker() {
-//     var datePicker = document.getElementById("PaymentPicker");
-//     if (datePicker.style.display === "none") {
-//       datePicker.style.display = "block";
-//     } 
-//     else {
-//       datePicker.style.display = "none";
-//     }
-// }
-
-
-
-// generateChart();
